@@ -4,3 +4,19 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* .br {
+    border: solid blue;
+}
+
+.bm {
+    border: solid red;
+}
+
+.bg {
+    border: solid green;
+}
+
+.all {
+    border: solid purple;
+} */
