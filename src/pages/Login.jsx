@@ -1,12 +1,12 @@
 import React from "react";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
     <div className="min-h-screen bg-main">
       <div className="flex md:pt-28 md:px-4 lg:pt-24 xl:max-w-6xl lg:mx-auto ">
-        {/* getbook icon || image and Hello! */}
-        <div className="hidden text-center md:block md:w-full">
+        {/* img icon  */}
+        <div className="hidden text-center md:self-center md:justify-center md:w-full md:grid">
           <h1 className="text-5xl italic font-bold font-roboto text-limeEboox">
             e-boox
           </h1>
@@ -47,6 +47,12 @@ const Login = () => {
             <button className="w-full py-3 mx-auto mt-5 font-medium text-white shadow-lg font-Roboto bg-cyanEboox rounded-3xl ">
               Sign in
             </button>
+            <p className="text-xl text-center text-cyanEboox">
+              Already have an account?
+              <Link className="ml-2 text-xl text-limeEboox" to={"/register"}>
+                Sign up
+              </Link>
+            </p>
           </form>
         </div>
       </div>
