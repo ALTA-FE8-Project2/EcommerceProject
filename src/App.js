@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
+import History from "./pages/History";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Cart from "./pages/Cart";
 import { Checkout } from "./pages/Checkout";
 import Details from "./pages/Details";
-import HistoryOrder from "./pages/HistoryOrder";
+
 import Register from "./pages/Register";
 import Profile from "./pages/Profile";
 
@@ -18,7 +19,7 @@ function App() {
         <Route path="/checkout" element={<Checkout />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/details" element={<Details />} />
-        <Route path="/history-order" element={<HistoryOrder />} />
+        <Route path="/history-order" element={<History />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
         <Route
@@ -32,7 +33,6 @@ function App() {
       </Routes>
     </BrowserRouter>
   );
-
 }
 
 export default App;
