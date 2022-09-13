@@ -7,6 +7,8 @@ import { Checkout } from "./pages/Checkout";
 import Details from "./pages/Details";
 import HistoryOrder from "./pages/HistoryOrder";
 import Register from "./pages/Register";
+import Profile from "./pages/Profile";
+
 function App() {
   return (
     <BrowserRouter>
@@ -18,6 +20,7 @@ function App() {
         <Route path="/details" element={<Details />} />
         <Route path="/history-order" element={<HistoryOrder />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/profile" element={<Profile />} />
         <Route
           path="*"
           element={
