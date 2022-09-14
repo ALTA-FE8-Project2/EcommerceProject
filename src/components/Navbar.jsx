@@ -87,9 +87,11 @@ export default function Navbar() {
                         <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto ">
                             {/* dark mode */}
                             <li className="mx-auto nav-item">
-                                <button>
-                                    <IoMoon size={35} /> {/* <IoSunny/> size={35} */}
-                                </button>
+                                {theme === "dark" ? (
+                                    <IoSunny className="text-white" size={35} onClick={() => handleChangeTheme("light")} />
+                                ) : (
+                                    <IoMoon className="text-white" size={35} onClick={() => handleChangeTheme("dark")} />
+                                )}
                             </li>
 
                             {/* cart */}
