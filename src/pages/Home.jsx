@@ -96,13 +96,13 @@
               </div>
               <div className="border-black flex flex-col-3 bg-white rounded-md shadow-md  m-6  sm:w-auto ">
                 <div>
-                  <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="h-44 -mt-8 m-6 " />
+                  <img src=" https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1489732961l/1362193._SY475_.jpg" alt="" className="h-44 -mt-8 m-6 " />
                 </div>
                 <div className="flex flex-col">
                 <h1 className=" mt-5  text-lg font-poppins">Garis Waktu</h1> 
                   <h2 className=" text-lg text-gray-400 font-poppins"> Author : Fiersa Bersari</h2>
                   <h2 className=" text-lg  font-poppins m-1">Rp. 150.000</h2>
-                  <button className="bg-cyanEboox rounded-md text-white text-center hover:bg-lime-700 transition-all duration-500"> Add To Cart</button>
+                  <button className="bg-cyanEboox  hover:bg-cyan-900 rounded-md text-white text-center  transition-all duration-500"> Add To Cart</button>
                 </div>
                
               </div>
