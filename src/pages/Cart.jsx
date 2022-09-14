@@ -22,9 +22,6 @@ const Cart = () => {
                         <img src="https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
                     </div>
                 </div>
-                <div className="">
-                    <h1>test</h1>
-                </div>
             </div>
             <Footer />
         </div>
