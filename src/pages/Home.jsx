@@ -1,5 +1,7 @@
 import React from "react";
 import Navbar from "../components/Navbar";
+import sekawan from "../assets/sekawan.svg";
+import Footer from "../components/Footer";
 const Home = () => {
     return (
         <div className="dark:bg-slate-800">
@@ -30,7 +32,7 @@ const Home = () => {
                         </div>
                     </div>
                     <div className="relative col-span-7 ">
-                        <img src="https://cdn.discordapp.com/attachments/1017789562757591111/1019099877348757505/ilustrator.png" alt="" className="absolute mx-48 h-96" />
+                        <img src={sekawan} alt="sekawan" className="absolute mx-48 h-96" />
                     </div>
                 </div>
             </section>
@@ -103,7 +105,6 @@ const Home = () => {
                             <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
                             <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
 
-
                             <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
                             <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-cyan-900"> Add To Cart</button>
                         </div>
@@ -126,8 +127,8 @@ const Home = () => {
               </div>
       
           </section> */}
+            <Footer />
         </div>
     );
 };
 export default Home;
-

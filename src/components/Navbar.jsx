@@ -83,7 +83,7 @@ export default function Navbar() {
                     </div>
 
                     {/* menu for mobile and tablet */}
-                    <div className={"lg:hidden flex-grow items-center" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
+                    <div className={" lg:hidden flex-grow items-center" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
                         <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto ">
                             {/* dark mode */}
                             <li className="mx-auto nav-item">
