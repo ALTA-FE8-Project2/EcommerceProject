@@ -96,7 +96,7 @@ const Footer = () => {
                         <form action="">
                             <div className="grid items-center justify-center gap-4 md:grid-cols-3 gird-cols-1 mt-9 md:mt-[80px]">
                                 <div className="md:ml-auto md:mb-6">
-                                    <p className="lg:text-xl text-main md:text-sm md:flex">
+                                    <p className="lg:text-lg text-main md:text-sm md:flex">
                                         <strong>Sign up for our newsletter</strong>
                                     </p>
                                 </div>
