@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-
 const Home = () => {
     return (
         <div className="dark:bg-slate-800">
@@ -35,9 +34,7 @@ const Home = () => {
                     </div>
                 </div>
             </section>
-
             {/* product */}
-
             <section className="min-h-screen bg-main dark:bg-slate-900">
                 <div className="p-10 mb-10 font-bold text-center">
                     <h1 className="text-5xl font-roboto md:text3xl dark:text-main">Product</h1>
@@ -105,13 +102,14 @@ const Home = () => {
                         <div className="flex flex-col">
                             <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
                             <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
+
+
                             <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
                             <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-cyan-900"> Add To Cart</button>
                         </div>
                     </div>
                 </div>
             </section>
-
             {/* <section className="min-h-screen my-12 bg-main">
             <h1 className="p-10 text-4xl font-bold text-center text-black font-roboto">Product</h1>
             <div className="container flex mx-auto border flex-col-4"> 
@@ -126,13 +124,10 @@ const Home = () => {
               </div>
               </div>
               </div>
-
       
-
-
           </section> */}
         </div>
     );
 };
-
 export default Home;
+
