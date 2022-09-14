@@ -1,8 +1,36 @@
-import React from "react";
 import Navbar from "../components/Navbar";
 import sekawan from "../assets/sekawan.svg";
 import Footer from "../components/Footer";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+
+
 const Home = () => {
+
+    // masukin data API ke set
+const [list,setList] =  useState([])
+
+// Buat nambah data
+// const [add,setAdd] = useState ({
+//   name : "",
+//   price : "",
+
+// })
+
+
+
+const getApi = () => {
+axios.get("http://13.214.37.101/products")
+// untuk memanggil respon APi
+.then((res) => setList(res.data.data))
+}
+
+// syarat wajib manggil apo
+useEffect (() => {
+  getApi () 
+},[])
+
+
     return (
         <div className="dark:bg-slate-800">
             <Navbar />
@@ -41,75 +69,25 @@ const Home = () => {
                 <div className="p-10 mb-10 font-bold text-center">
                     <h1 className="text-5xl font-roboto md:text3xl dark:text-main">Product</h1>
                 </div>
-                <div className="flex flex-wrap justify-center mt-10 ">
-                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
-                        <div>
-                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
-                        </div>
-                        <div className="flex flex-col">
-                            <h1 className="mt-5 text-lg text-main dark:text-slate-800 font-poppins">Garis Waktu</h1>
-                            <h2 className="text-lg text-main dark:text-slate-800 font-poppins"> Author : Fiersa Bersari</h2>
-                            <h2 className="m-1 text-lg text-main dark:text-slate-800 font-poppins">Rp. 150.000</h2>
-                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
-                        </div>
+                 {/* Mapping objeck  */}
+            {list.map((obj,index)=> {
+              return (
+                // key = untuk mapping
+                <div key={index} className="flex flex-wrap justify-between mt-10 ">
+                <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
+                    <div>
+                        <img src= {obj.url} alt="" className="m-6 -mt-8 h-44 " />
                     </div>
-                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
-                        <div>
-                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
-                        </div>
-                        <div className="flex flex-col">
-                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
-                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
-                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
-                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
-                        </div>
-                    </div>
-                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
-                        <div>
-                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
-                        </div>
-                        <div className="flex flex-col">
-                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
-                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
-                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
-                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
-                        </div>
-                    </div>
-                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
-                        <div>
-                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
-                        </div>
-                        <div className="flex flex-col">
-                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
-                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
-                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
-                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
-                        </div>
-                    </div>
-                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
-                        <div>
-                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
-                        </div>
-                        <div className="flex flex-col">
-                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
-                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
-                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
-                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
-                        </div>
-                    </div>
-                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
-                        <div>
-                            <img src=" https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1489732961l/1362193._SY475_.jpg" alt="" className="m-6 -mt-8 h-44 " />
-                        </div>
-                        <div className="flex flex-col">
-                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
-                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
-
-                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
-                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-cyan-900"> Add To Cart</button>
-                        </div>
+                    <div className="flex flex-col">
+                        <h1 className="mt-5 text-lg text-main dark:text-slate-800 font-poppins">{obj.name}</h1>
+                        <h2 className="text-lg text-main dark:text-slate-800 font-poppins"> Author : Fiersa Bersari</h2>
+                        <h2 className="m-1 text-lg text-main dark:text-slate-800 font-poppins">Rp {obj.price}</h2>
+                        <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
                     </div>
                 </div>
+              </div>
+              )
+            })}
             </section>
             {/* <section className="min-h-screen my-12 bg-main">
             <h1 className="p-10 text-4xl font-bold text-center text-black font-roboto">Product</h1>
