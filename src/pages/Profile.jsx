@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MdPersonOutline, MdAlternateEmail, MdOutlineEmail } from "react-icons/md";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 const Profile = () => {
@@ -113,6 +114,7 @@ const Profile = () => {
                     </>
                 ) : null}
             </div>
+            <Footer />
         </>
     );
 };
