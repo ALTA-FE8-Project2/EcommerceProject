@@ -20,7 +20,6 @@ const Login = () => {
       .post("http://13.214.37.101/login", body)
       .then((response) => {
         const token = response.data.data.token;
-        console.log(token);
         localStorage.setItem("token", token);
         setToken(token);
         navigate("/home");
