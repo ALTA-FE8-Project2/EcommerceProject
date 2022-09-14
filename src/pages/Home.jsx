@@ -4,6 +4,11 @@ import Navbar from "../components/Navbar";
 
 
 
+
+
+import sekawan from "../assets/sekawan.svg";
+import Footer from "../components/Footer";
+
 const Home = () => {
 
 // masukin data API ke set
@@ -74,7 +79,7 @@ useEffect (() => {
                         </div>
                     </div>
                     <div className="relative col-span-7 ">
-                        <img src="https://cdn.discordapp.com/attachments/1017789562757591111/1019099877348757505/ilustrator.png" alt="" className="absolute mx-48 h-96" />
+                        <img src={sekawan} alt="sekawan" className="absolute mx-48 h-96" />
                     </div>
                 </div>
             </section>
@@ -85,6 +90,7 @@ useEffect (() => {
                     <h1 className="text-5xl font-roboto md:text3xl dark:text-main">Product</h1>
                 </div>
 
+
             {/* Mapping objeck  */}
             {list.map((obj,index)=> {
               return (
@@ -93,6 +99,75 @@ useEffect (() => {
                 <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
                     <div>
                         <img src= {obj.url} alt="" className="m-6 -mt-8 h-44 " />
+
+                <div className="flex flex-wrap justify-center mt-10 ">
+                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
+                        <div>
+                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
+                        </div>
+                        <div className="flex flex-col">
+                            <h1 className="mt-5 text-lg text-main dark:text-slate-800 font-poppins">Garis Waktu</h1>
+                            <h2 className="text-lg text-main dark:text-slate-800 font-poppins"> Author : Fiersa Bersari</h2>
+                            <h2 className="m-1 text-lg text-main dark:text-slate-800 font-poppins">Rp. 150.000</h2>
+                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
+                        </div>
+                    </div>
+                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
+                        <div>
+                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
+                        </div>
+                        <div className="flex flex-col">
+                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
+                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
+                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
+                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
+                        </div>
+                    </div>
+                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
+                        <div>
+                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
+                        </div>
+                        <div className="flex flex-col">
+                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
+                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
+                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
+                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
+                        </div>
+                    </div>
+                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
+                        <div>
+                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
+                        </div>
+                        <div className="flex flex-col">
+                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
+                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
+                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
+                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
+                        </div>
+                    </div>
+                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
+                        <div>
+                            <img src=" https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt="" className="m-6 -mt-8 h-44 " />
+                        </div>
+                        <div className="flex flex-col">
+                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
+                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
+                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
+                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
+                        </div>
+                    </div>
+                    <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
+                        <div>
+                            <img src=" https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1489732961l/1362193._SY475_.jpg" alt="" className="m-6 -mt-8 h-44 " />
+                        </div>
+                        <div className="flex flex-col">
+                            <h1 className="mt-5 text-lg font-poppins text-main dark:text-slate-800">Garis Waktu</h1>
+                            <h2 className="text-lg font-poppins text-main dark:text-slate-800"> Author : Fiersa Bersari</h2>
+
+                            <h2 className="m-1 text-lg font-poppins text-main dark:text-slate-800">Rp. 150.000</h2>
+                            <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-cyan-900"> Add To Cart</button>
+                        </div>
+
                     </div>
                     <div className="flex flex-col">
                         <h1 className="mt-5 text-lg text-main dark:text-slate-800 font-poppins">{obj.name}</h1>
@@ -102,14 +177,19 @@ useEffect (() => {
                     </div>
                 </div>
               </div>
+
               )
             })}
 
                
             </section>
 
+
+      
+          </section> */}
+            <Footer />
+
         </div>
     );
 };
 export default Home;
-

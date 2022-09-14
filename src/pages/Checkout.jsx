@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { MdOutlinePayments } from "react-icons/md";
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 export const Checkout = () => {
     const [showModal, setShowModal] = useState(false);
@@ -105,6 +106,7 @@ export const Checkout = () => {
                     <div className="fixed inset-0 z-40 bg-slate-700 opacity-70"></div>
                 </>
             ) : null}
+            <Footer />
         </div>
     );
 };

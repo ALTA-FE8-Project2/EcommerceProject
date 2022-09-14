@@ -1,7 +1,36 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { TokenContext } from "../utils/DarkmodeContext";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const { token, setToken } = useContext(TokenContext);
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      email,
+      password,
+    };
+
+    axios
+      .post("http://13.214.37.101/login", body)
+      .then((response) => {
+        const token = response.data.data.token;
+        console.log(token);
+        localStorage.setItem("token", token);
+        setToken(token);
+        navigate("/home");
+      })
+      .catch(() => {
+        alert("login failed");
+      })
+      .finally(() => {});
+  };
+
   return (
     <div className="min-h-screen bg-main">
       <div className="flex md:pt-28 md:px-4 lg:pt-24 xl:max-w-6xl lg:mx-auto ">
@@ -17,7 +46,8 @@ const Login = () => {
             alt="gambar login"
           />
         </div>
-        {/* form login */}
+
+        {/* Welcome */}
         <div className="w-full md:mr-2 lg:mr-0">
           <div className="md:mb-20 lg:mb-20">
             <h1 className="ml-8 text-5xl font-extrabold font-Roboto sm:text-7xl lg:-mt-2 text-limeEboox">
@@ -27,13 +57,17 @@ const Login = () => {
               Sign in to continue
             </h5>
           </div>
-          <form className="mx-4 mt-9">
+
+          {/* form Login */}
+          <form className="mx-4 mt-9" onSubmit={(e) => handleSubmit(e)}>
             <div>
               <input
-                type="text"
+                type="email"
                 className="font-Roboto font-normal text-base pl-6 border-[#25732D] text-black rounded-3xl shadow-lg block w-full p-3 dark:shadow-md  "
-                placeholder="Username"
+                placeholder="Email"
                 required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -42,6 +76,8 @@ const Login = () => {
                 className="mt-5 font-Roboto font-normal text-base pl-6 border-[#25732D] text-black rounded-3xl shadow-lg  block w-full p-3  "
                 placeholder="Password"
                 required
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button className="w-full py-3 mx-auto mt-5 font-medium text-white shadow-lg font-Roboto bg-cyanEboox rounded-3xl ">
