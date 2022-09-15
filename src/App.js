@@ -38,7 +38,6 @@ function App() {
     <TokenContext.Provider value={jwtToken}>
       <ThemeContext.Provider value={background}>
         <BrowserRouter>
-          {/* {if (token !== "0"){  */}
           {token !== "0" ? (
             <Routes>
               <Route path="/" element={<Login />} />
@@ -80,13 +79,6 @@ function App() {
               />
             </Routes>
           )}
-          {/* }
-            else
-          {
-            <Routes>
-              <Route path="/" element={<Login />} />
-            </Routes>
-          } */}
         </BrowserRouter>
       </ThemeContext.Provider>
     </TokenContext.Provider>
