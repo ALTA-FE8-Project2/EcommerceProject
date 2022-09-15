@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import { ThemeContext } from "./utils/DarkmodeContext";
 import axios from "axios";
@@ -34,11 +34,12 @@ function App() {
     axios.defaults.headers.common["Authorization"] = `Bearer ${getToken}`;
   }, [token]);
 
-  if (token) {
-    return (
-      <TokenContext.Provider value={jwtToken}>
-        <ThemeContext.Provider value={background}>
-          <BrowserRouter>
+  return (
+    <TokenContext.Provider value={jwtToken}>
+      <ThemeContext.Provider value={background}>
+        <BrowserRouter>
+          {/* {if (token !== "0"){  */}
+          {token !== "0" ? (
             <Routes>
               <Route path="/" element={<Login />} />
               <Route path="/home" element={<Home />} />
@@ -60,11 +61,35 @@ function App() {
                 }
               />
             </Routes>
-          </BrowserRouter>
-        </ThemeContext.Provider>
-      </TokenContext.Provider>
-    );
-  }
+          ) : (
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route
+                path="*"
+                element={
+                  <div className="grid content-center justify-center min-h-screen text-2xl font-bold sm:text-5xl">
+                    <p className="inline h-8">
+                      You have to
+                      <Link className="ml-2 text-limeEboox" to={"/"}>
+                        Sign in
+                      </Link>
+                    </p>
+                  </div>
+                }
+              />
+            </Routes>
+          )}
+          {/* }
+            else
+          {
+            <Routes>
+              <Route path="/" element={<Login />} />
+            </Routes>
+          } */}
+        </BrowserRouter>
+      </ThemeContext.Provider>
+    </TokenContext.Provider>
+  );
 }
 
 export default App;
