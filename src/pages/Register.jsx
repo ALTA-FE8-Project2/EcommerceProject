@@ -86,7 +86,7 @@ const Register = () => {
               Sign up
             </button>
             <p className="text-sm text-center sm:text-xl text-cyanEboox">
-              Don't have an account yet?
+              Already have an account?
               <Link className="ml-2 text-sm sm:text-xl text-limeEboox" to={"/"}>
                 Sign in
               </Link>
