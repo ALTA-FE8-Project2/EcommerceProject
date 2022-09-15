@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import { useState, useEffect, useMemo } from "react";
 import { ThemeContext } from "./utils/DarkmodeContext";
 import axios from "axios";
@@ -34,34 +34,55 @@ function App() {
     axios.defaults.headers.common["Authorization"] = `Bearer ${getToken}`;
   }, [token]);
 
-  if (token) {
-    return (
-      <TokenContext.Provider value={jwtToken}>
-        <ThemeContext.Provider value={background}>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/home" element={<Home />} />
-                    <Route path="/" element={<Login />} />
-                    <Route path="/checkout" element={<Checkout />} />
-                    <Route path="/cart" element={<Cart />} />
-                    <Route path="/details/:judul" element={<Details />} />
-                    <Route path="/history-order" element={<History />} />
-                    <Route path="/register" element={<Register />} />
-                    <Route path="/profile" element={<Profile />} />
-                    <Route
-                        path="*"
-                        element={
-                            <div className="grid content-center justify-center min-h-screen text-2xl font-bold sm:text-5xl">
-                                <span className="inline h-8 "> 404 Error Not Found........</span>
-                            </div>
-                        }
-                    />
-                </Routes>
-            </BrowserRouter>
-        </ThemeContext.Provider>
-      </TokenContext.Provider>
-    );
-  }
+  return (
+    <TokenContext.Provider value={jwtToken}>
+      <ThemeContext.Provider value={background}>
+        <BrowserRouter>
+          {token !== "0" ? (
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/home" element={<Home />} />
+              <Route path="/checkout" element={<Checkout />} />
+              <Route path="/cart" element={<Cart />} />
+              <Route path="/details" element={<Details />} />
+              <Route path="/history-order" element={<History />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route
+                path="*"
+                element={
+                  <div className="grid content-center justify-center min-h-screen text-2xl font-bold sm:text-5xl">
+                    <span className="inline h-8 ">
+                      {" "}
+                      404 Error Not Found........
+                    </span>
+                  </div>
+                }
+              />
+            </Routes>
+          ) : (
+            <Routes>
+              <Route path="/" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+              <Route
+                path="*"
+                element={
+                  <div className="grid content-center justify-center min-h-screen text-2xl font-bold sm:text-5xl">
+                    <p className="inline h-8">
+                      You have to
+                      <Link className="ml-2 text-limeEboox" to={"/"}>
+                        Sign in
+                      </Link>
+                    </p>
+                  </div>
+                }
+              />
+            </Routes>
+          )}
+        </BrowserRouter>
+      </ThemeContext.Provider>
+    </TokenContext.Provider>
+  );
 }
 
 export default App;
