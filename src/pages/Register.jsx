@@ -1,7 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const body = {
+      name,
+      email,
+      password,
+    };
+
+    axios
+      .post("http://13.214.37.101/signup", body)
+      .then((response) => {
+        navigate("/");
+      })
+      .catch(() => {
+        alert("sign up filed");
+      });
+  };
+
   return (
     <div className="min-h-screen bg-main ">
       <div className="flex md:pt-3 md:px-4 xl:max-w-6xl lg:mx-auto ">
@@ -27,21 +51,17 @@ const Register = () => {
               Create a new account
             </h5>
           </div>
-          <form className="flex flex-col gap-4 mx-4 mt-9">
+          <form
+            className="flex flex-col gap-4 mx-4 mt-9"
+            onSubmit={(e) => handleSubmit(e)}
+          >
             <div>
               <input
                 type="text"
                 className="font-Roboto font-normal text-base pl-6 border-[#25732D] text-black rounded-3xl shadow-lg block w-full p-3 dark:shadow-md  "
                 placeholder="Full Name"
                 required
-              />
-            </div>
-            <div>
-              <input
-                type="text"
-                className="font-Roboto font-normal text-base pl-6 border-[#25732D] text-black rounded-3xl shadow-lg block w-full p-3 dark:shadow-md  "
-                placeholder="Username"
-                required
+                onChange={(e) => setName(e.target.value)}
               />
             </div>
             <div>
@@ -50,6 +70,7 @@ const Register = () => {
                 className="font-Roboto font-normal text-base pl-6 border-[#25732D] text-black rounded-3xl shadow-lg block w-full p-3 dark:shadow-md  "
                 placeholder="Email"
                 required
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
             <div>
@@ -58,6 +79,7 @@ const Register = () => {
                 className=" font-Roboto font-normal text-base pl-6 border-[#25732D] text-black rounded-3xl shadow-lg  block w-full p-3  "
                 placeholder="Password"
                 required
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
             <button className="w-full py-3 mx-auto mt-2 font-medium text-white shadow-lg font-Roboto bg-cyanEboox rounded-3xl ">
@@ -65,10 +87,7 @@ const Register = () => {
             </button>
             <p className="text-sm text-center sm:text-xl text-cyanEboox">
               Don't have an account yet?
-              <Link
-                className="ml-2 text-sm sm:text-xl text-limeEboox"
-                to={"/login"}
-              >
+              <Link className="ml-2 text-sm sm:text-xl text-limeEboox" to={"/"}>
                 Sign in
               </Link>
             </p>
