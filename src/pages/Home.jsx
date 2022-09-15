@@ -65,7 +65,7 @@ const Home = () => {
                             </button>
                         </div>
                     </div>
-                    <div className="relative col-span-7 ">
+                    <div className="relative col-span-7">
                         <img src={sekawan} alt="sekawan" className="absolute mx-48 h-96" />
                     </div>
                 </div>

@@ -83,8 +83,8 @@ export default function Navbar() {
                     </div>
 
                     {/* menu for mobile and tablet */}
-                    <div className={" lg:hidden flex-grow items-center" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
-                        <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto ">
+                    <div className={"  lg:hidden flex-grow items-center" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
+                        <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto">
                             {/* dark mode */}
                             <li className="mx-auto nav-item">
                                 {theme === "dark" ? (
@@ -97,24 +97,24 @@ export default function Navbar() {
                             {/* cart */}
                             <li className="w-[200px] nav-item">
                                 <Link to="/cart" className="flex items-center ">
-                                    <MdOutlineShoppingCart size={40} />
-                                    <h3 className="ml-3 text-xl font-medium font-poppins ">Cart</h3>
+                                    <MdOutlineShoppingCart size={40} className="text-white" />
+                                    <h3 className="ml-3 text-xl font-medium text-white font-poppins">Cart</h3>
                                 </Link>
                             </li>
 
                             {/* History */}
                             <li className="nav-item w-[200px]">
                                 <Link to="/history-order" className="flex items-center">
-                                    <MdOutlineHistory size={40} />
-                                    <h3 className="ml-3 text-xl font-medium font-poppins ">Hystory Order</h3>
+                                    <MdOutlineHistory size={40} className="text-white" />
+                                    <h3 className="ml-3 text-xl font-medium text-white font-poppins">Hystory Order</h3>
                                 </Link>
                             </li>
 
                             {/* Profile */}
                             <li className="nav-item w-[200px]">
                                 <Link to="/profile" className="flex items-center">
-                                    <MdOutlineAccountCircle size={40} />
-                                    <h3 className="ml-3 text-xl font-medium font-poppins ">Profile</h3>
+                                    <MdOutlineAccountCircle size={40} className="text-white" />
+                                    <h3 className="ml-3 text-xl font-medium text-white font-poppins">Profile</h3>
                                 </Link>
                             </li>
                         </ul>
