@@ -48,7 +48,7 @@ export default function Navbar() {
                         {/* List menu for large size */}
                         <ul className="flex-col justify-between hidden list-none w-52 lg:flex lg:flex-row lg:ml-auto ">
                             {/* dark mode */}
-                            <li className="nav-item">
+                            <li className="nav-item cursor-pointer">
                                 {theme === "dark" ? (
                                     <IoSunny className="text-white" size={35} onClick={() => handleChangeTheme("light")} />
                                 ) : (
@@ -83,12 +83,12 @@ export default function Navbar() {
                     </div>
 
                     {/* menu for mobile and tablet */}
-                    <div className={"  lg:hidden flex-grow items-center" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
-                        <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto">
+                    <div className={"  lg:hidden flex-grow items-center" + (navbarOpen ? " flex" : " hidden"  )} id="example-navbar-danger">
+                        <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto ">
                             {/* dark mode */}
-                            <li className="mx-auto nav-item">
+                            <li className=" mx-auto nav-item cursor-pointer  ">
                                 {theme === "dark" ? (
-                                    <IoSunny className="text-white" size={35} onClick={() => handleChangeTheme("light")} />
+                                    <IoSunny className="text-white " size={35} onClick={() => handleChangeTheme("light")} />
                                 ) : (
                                     <IoMoon className="text-white" size={35} onClick={() => handleChangeTheme("dark")} />
                                 )}

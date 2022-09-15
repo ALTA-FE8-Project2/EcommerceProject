@@ -40,8 +40,8 @@ function App() {
         <ThemeContext.Provider value={background}>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/login" element={<Login />} />
+                    <Route path="/home" element={<Home />} />
+                    <Route path="/" element={<Login />} />
                     <Route path="/checkout" element={<Checkout />} />
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/details/:judul" element={<Details />} />
