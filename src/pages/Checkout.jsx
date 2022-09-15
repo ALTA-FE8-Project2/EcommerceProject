@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { MdOutlinePayments } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 export const Checkout = () => {
     const [showModal, setShowModal] = useState(false);
+    const navigate = useNavigate();
     return (
         <div className="bg-glass dark:bg-slate-800">
             <Navbar />
@@ -93,10 +95,7 @@ export const Checkout = () => {
 
                                 <h1 className="p-3 text-xl font-semibold text-center text-slate-700 dark:text-white font-poppins">Your order for #123456789 successfully</h1>
                                 <div className="flex items-center justify-center p-3">
-                                    <button
-                                        className="py-3 text-lg font-semibold text-center rounded-full text-limeEboox w-28 font-poppins bg-glass"
-                                        onClick={() => setShowModal(false)}
-                                    >
+                                    <button className="py-3 text-lg font-semibold text-center rounded-full text-limeEboox w-28 font-poppins bg-glass" onClick={() => navigate("/")}>
                                         BACK
                                     </button>
                                 </div>

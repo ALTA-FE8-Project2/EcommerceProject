@@ -38,29 +38,26 @@ function App() {
     return (
       <TokenContext.Provider value={jwtToken}>
         <ThemeContext.Provider value={background}>
-          <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Home />} />
-              <Route path="/checkout" element={<Checkout />} />
-              <Route path="/cart" element={<Cart />} />
-              <Route path="/details" element={<Details />} />
-              <Route path="/history-order" element={<History />} />
-              <Route path="/register" element={<Register />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route
-                path="*"
-                element={
-                  <div className="grid content-center justify-center min-h-screen text-2xl font-bold sm:text-5xl">
-                    <span className="inline h-8 ">
-                      {" "}
-                      404 Error Not Found........
-                    </span>
-                  </div>
-                }
-              />
-            </Routes>
-          </BrowserRouter>
+            <BrowserRouter>
+                <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="/checkout" element={<Checkout />} />
+                    <Route path="/cart" element={<Cart />} />
+                    <Route path="/details/:judul" element={<Details />} />
+                    <Route path="/history-order" element={<History />} />
+                    <Route path="/register" element={<Register />} />
+                    <Route path="/profile" element={<Profile />} />
+                    <Route
+                        path="*"
+                        element={
+                            <div className="grid content-center justify-center min-h-screen text-2xl font-bold sm:text-5xl">
+                                <span className="inline h-8 "> 404 Error Not Found........</span>
+                            </div>
+                        }
+                    />
+                </Routes>
+            </BrowserRouter>
         </ThemeContext.Provider>
       </TokenContext.Provider>
     );
