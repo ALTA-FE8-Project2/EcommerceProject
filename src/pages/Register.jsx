@@ -17,7 +17,7 @@ const Register = () => {
     };
 
     axios
-      .post("http://13.214.37.101/signup", body)
+      .post("http://18.142.161.140/signup", body)
       .then((response) => {
         navigate("/");
       })
