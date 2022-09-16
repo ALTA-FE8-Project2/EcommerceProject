@@ -8,7 +8,7 @@ import { TokenContext } from "../utils/DarkmodeContext";
 
 const Profile = () => {
   const [showModal, setShowModal] = useState(false);
-  const { token, setToken } = useContext(TokenContext);
+  const { setToken } = useContext(TokenContext);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Profile = () => {
   const getData = async () => {
     var requestOptions = {
       method: "get",
-      url: "http://13.214.37.101/users/details",
+      url: "http://18.142.161.140/users/details",
       headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -39,61 +39,19 @@ const Profile = () => {
   };
 
   // -------------------------edit data
-  //   const editData = () => {
-  //     var axios = require("axios");
-  //     var data = JSON.stringify({
-  //       name,
-  //       email,
-  //     });
 
-  //     var config = {
-  //       method: "put",
-  //       url: "http://13.214.37.101/users",
-  //       headers: {
-  //         Authorization: `Bearer ${token}`,
-  //         "Content-Type": "application/json",
-  //       },
-  //       data: data,
-  //     };
-
-  //     axios(config)
-  //       .then(function (response) {
-  //         console.log(JSON.stringify(response.data));
-  //         getData();
-  //       })
-  //       .catch(function (error) {
-  //         console.log("error");
-  //       });
-  //   };
-
-  const handleSubmit = async (e) => {
+  const editData = (e) => {
     e.preventDefault();
-    // editData();
-    const body = { name, email };
-
-    let requestOptions = {
-      method: "PUT",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    };
-
-    fetch(`http://13.214.37.101/users`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        // const { message } = result;
-        // router.push(`/profile`);
-        // alert(message);
-        setShowModal(false);
+    const data = { name: name, email: email };
+    axios
+      .put("http://18.142.161.140/users", data, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          "Content-Type": "application/json",
+        },
       })
-      .catch((error) => {
-        console.log(error);
-        alert(error.toString());
-      })
-      .finally();
+      .then(() => getData())
+      .catch((error) => console.log(error));
   };
 
   const handleLogout = () => {
@@ -182,7 +140,7 @@ const Profile = () => {
                   <div className="relative flex-auto px-3 mt-2">
                     <form
                       className="relative flex-auto w-full "
-                      onSubmit={(e) => handleSubmit(e)}
+                      onSubmit={(e) => editData(e)}
                     >
                       <div>
                         <input
@@ -203,7 +161,7 @@ const Profile = () => {
                       <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
                         <button
                           className="px-6 py-3 mb-1 mr-1 text-sm font-bold text-white uppercase transition-all duration-150 ease-linear rounded shadow outline-none bg-cyanEboox hover:shadow-lg focus:outline-none"
-                          type="button"
+                          type="submit"
                         >
                           Save
                         </button>
