@@ -23,7 +23,7 @@ export default function Navbar() {
         <div className="flex flex-wrap items-center w-full px-2 mx-auto md:px-4">
           <div className="relative flex items-center justify-between w-full ">
             {/*  logo*/}
-            <Link to="/home" className="flex items-center">
+            <Link to="/" className="flex items-center">
               <img
                 src="https://cdn.discordapp.com/attachments/1017919526748299295/1018847868905324564/logo_2.png"
                 alt="logo"
@@ -59,7 +59,7 @@ export default function Navbar() {
             {/* List menu for large size */}
             <ul className="flex-col justify-between hidden list-none w-52 lg:flex lg:flex-row lg:ml-auto ">
               {/* dark mode */}
-              <li className="nav-item">
+              <li className="cursor-pointer nav-item">
                 {theme === "dark" ? (
                   <IoSunny
                     className="text-white"
@@ -106,40 +106,64 @@ export default function Navbar() {
               </li>
             </ul>
           </div>
-{/* menu for mobile and tablet */}
-                    <div className={"  lg:hidden flex-grow items-center" + (navbarOpen ? " flex" : " hidden")} id="example-navbar-danger">
-                        <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto">
-                            {/* dark mode */}
-                            <li className="mx-auto nav-item">
-                                {theme === "dark" ? (
-                                    <IoSunny className="text-white" size={35} onClick={() => handleChangeTheme("light")} />
-                                ) : (
-                                    <IoMoon className="text-white" size={35} onClick={() => handleChangeTheme("dark")} />
-                                )}
-                            </li>
-                            {/* cart */}
-                            <li className="w-[200px] nav-item">
-                                <Link to="/cart" className="flex items-center ">
-                                    <MdOutlineShoppingCart size={40} className="text-white" />
-                                    <h3 className="ml-3 text-xl font-medium text-white font-poppins">Cart</h3>
-                                </Link>
-                            </li>
-                            {/* History */}
-                            <li className="nav-item w-[200px]">
-                                <Link to="/history-order" className="flex items-center">
-                                    <MdOutlineHistory size={40} className="text-white" />
-                                    <h3 className="ml-3 text-xl font-medium text-white font-poppins">Hystory Order</h3>
-                                </Link>
-                            </li>
-                            {/* Profile */}
-                            <li className="nav-item w-[200px]">
-                                <Link to="/profile" className="flex items-center">
-                                    <MdOutlineAccountCircle size={40} className="text-white" />
-                                    <h3 className="ml-3 text-xl font-medium text-white font-poppins">Profile</h3>
-                                </Link>
-                            </li>
-                        </ul>
-                    </div>
+
+          {/* menu for mobile and tablet */}
+          <div
+            className={
+              "  lg:hidden flex-grow items-center" +
+              (navbarOpen ? " flex" : " hidden")
+            }
+            id="example-navbar-danger"
+          >
+            <ul className="flex flex-col w-full mt-6 list-none lg:flex-row lg:ml-auto ">
+              {/* dark mode */}
+              <li className="mx-auto cursor-pointer nav-item">
+                {theme === "dark" ? (
+                  <IoSunny
+                    className="text-white "
+                    size={35}
+                    onClick={() => handleChangeTheme("light")}
+                  />
+                ) : (
+                  <IoMoon
+                    className="text-white"
+                    size={35}
+                    onClick={() => handleChangeTheme("dark")}
+                  />
+                )}
+              </li>
+
+              {/* cart */}
+              <li className="w-[200px] nav-item">
+                <Link to="/cart" className="flex items-center ">
+                  <MdOutlineShoppingCart size={40} className="text-white" />
+                  <h3 className="ml-3 text-xl font-medium text-white font-poppins">
+                    Cart
+                  </h3>
+                </Link>
+              </li>
+
+              {/* History */}
+              <li className="nav-item w-[200px]">
+                <Link to="/history-order" className="flex items-center">
+                  <MdOutlineHistory size={40} className="text-white" />
+                  <h3 className="ml-3 text-xl font-medium text-white font-poppins">
+                    Hystory Order
+                  </h3>
+                </Link>
+              </li>
+
+              {/* Profile */}
+              <li className="nav-item w-[200px]">
+                <Link to="/profile" className="flex items-center">
+                  <MdOutlineAccountCircle size={40} className="text-white" />
+                  <h3 className="ml-3 text-xl font-medium text-white font-poppins">
+                    Profile
+                  </h3>
+                </Link>
+              </li>
+            </ul>
+          </div>
         </div>
       </nav>
     </header>

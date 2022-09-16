@@ -39,7 +39,6 @@ const Profile = () => {
   };
 
   // -------------------------edit data
-
   const editData = (e) => {
     e.preventDefault();
     const data = { name: name, email: email };
@@ -53,6 +52,16 @@ const Profile = () => {
       .then(() => getData())
       .catch((error) => console.log(error));
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    editData();
+  };
+
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     editData();
+  //   };
 
   const handleLogout = () => {
     setToken("0");

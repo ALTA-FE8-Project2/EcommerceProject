@@ -1,35 +1,41 @@
+import React, { useEffect, useState } from "react";
 import Navbar from "../components/Navbar";
 import sekawan from "../assets/sekawan.svg";
 import Footer from "../components/Footer";
-import React, { useEffect, useState } from "react";
 import axios from "axios";
-
-
+import { useNavigate } from "react-router-dom";
+import Card from "../components/Card";
 const Home = () => {
+    const navigate = useNavigate();
+    const [listProducts, setListProducts] = useState([]);
+    const API = "http://13.214.37.101/products";
 
-    // masukin data API ke set
-const [list,setList] =  useState([])
+    useEffect(() => {
+        getListProducts();
+    }, []);
 
-// Buat nambah data
-// const [add,setAdd] = useState ({
-//   name : "",
-//   price : "",
+    // untuk get data E-Book dari endpoint mas fakhry
+    const getListProducts = async () => {
+        try {
+            const response = await axios.get(API);
+            console.log(response.data.data);
+            setListProducts(response.data.data);
+        } catch (error) {
+            console.log(error);
+        }
+    };
 
-// })
-
-
-
-const getApi = () => {
-axios.get("http://13.214.37.101/products")
-// untuk memanggil respon APi
-.then((res) => setList(res.data.data))
-}
-
-// syarat wajib manggil apo
-useEffect (() => {
-  getApi () 
-},[])
-
+    // untuk navigate ke halaman details
+    const handleDetail = (item) => {
+        navigate(`/details/${item.name}`, {
+            state: {
+                image: item.url,
+                judul: item.name,
+                sinopsis: item.detail,
+                price: item.price,
+            },
+        });
+    };
 
     return (
         <div className="dark:bg-slate-800">
@@ -59,7 +65,7 @@ useEffect (() => {
                             </button>
                         </div>
                     </div>
-                    <div className="relative col-span-7 ">
+                    <div className="relative col-span-7">
                         <img src={sekawan} alt="sekawan" className="absolute mx-48 h-96" />
                     </div>
                 </div>
@@ -69,42 +75,16 @@ useEffect (() => {
                 <div className="p-10 mb-10 font-bold text-center">
                     <h1 className="text-5xl font-roboto md:text3xl dark:text-main">Product</h1>
                 </div>
-                 {/* Mapping objeck  */}
-            {list.map((obj,index)=> {
-              return (
-                // key = untuk mapping
-                <div key={index} className="flex flex-wrap justify-between mt-10 ">
-                <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
-                    <div>
-                        <img src= {obj.url} alt="" className="m-6 -mt-8 h-44 " />
-                    </div>
-                    <div className="flex flex-col">
-                        <h1 className="mt-5 text-lg text-main dark:text-slate-800 font-poppins">{obj.name}</h1>
-                        <h2 className="text-lg text-main dark:text-slate-800 font-poppins"> Author : Fiersa Bersari</h2>
-                        <h2 className="m-1 text-lg text-main dark:text-slate-800 font-poppins">Rp {obj.price}</h2>
-                        <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"> Add To Cart</button>
-                    </div>
+                <div className="flex flex-wrap justify-center mt-10 ">
+                    {listProducts.map((product, i) => {
+                        return (
+                            <div key={i}>
+                                <Card image={product.url} judul={product.name} price={product.price} sinopsis={product.detail} handleDetail={() => handleDetail(product)} />
+                            </div>
+                        );
+                    })}
                 </div>
-              </div>
-              )
-            })}
             </section>
-            {/* <section className="min-h-screen my-12 bg-main">
-            <h1 className="p-10 text-4xl font-bold text-center text-black font-roboto">Product</h1>
-            <div className="container flex mx-auto border flex-col-4"> 
-              <div className="grid grid-cols-3 border ">
-              <div className="flex flex-wrap border px-28">
-                  <div className="relative flex bg-white rounded-lg shadow-md border-blue flex-col-3">
-                    <div className="">
-                      <img src="https://cdn.discordapp.com/attachments/1017709537312116772/1019144286027128882/gariswaktu.png" alt=""  className="m-6 -mt-8 h-44 "/>
-                    </div>
-                    <h1 className="ml-10">Garis Waktu</h1>
-                  </div>
-              </div>
-              </div>
-              </div>
-      
-          </section> */}
             <Footer />
         </div>
     );
