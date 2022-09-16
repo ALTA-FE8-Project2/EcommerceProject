@@ -6,7 +6,7 @@ import { TokenContext } from "../utils/DarkmodeContext";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { token, setToken } = useContext(TokenContext);
+  const { setToken } = useContext(TokenContext);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -17,15 +17,15 @@ const Login = () => {
     };
 
     axios
-      .post("http://13.214.37.101/login", body)
+      .post("http://18.142.161.140/login", body)
       .then((response) => {
         const token = response.data.data.token;
         localStorage.setItem("token", token);
         setToken(token);
         navigate("/");
       })
-      .catch(() => {
-        alert("login failed");
+      .catch((error) => {
+        alert(error);
       })
       .finally(() => {});
   };
