@@ -41,10 +41,11 @@ const Profile = () => {
   // -------------------------edit data
   //   const editData = () => {
   //     var axios = require("axios");
-  //     var data = JSON.stringify({
+  //     // var data = JSON.stringify({
+  //     var data = {
   //       name,
   //       email,
-  //     });
+  //     };
 
   //     var config = {
   //       method: "put",
@@ -56,9 +57,11 @@ const Profile = () => {
   //       data: data,
   //     };
 
-  //     axios(config)
+  //     await axios(config)
   //       .then(function (response) {
-  //         console.log(JSON.stringify(response.data));
+  //         //   console.log(JSON.stringify(response.data));
+  //         console.log(response.data);
+
   //         getData();
   //       })
   //       .catch(function (error) {
@@ -66,35 +69,45 @@ const Profile = () => {
   //       });
   //   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    // editData();
-    const body = { name, email };
+  const editData = async () => {
+    var axios = require("axios");
+    // var data = JSON.stringify({
+    var data = {
+      name,
+      email,
+    };
 
-    let requestOptions = {
-      method: "PUT",
+    var config = {
+      method: "put",
+      url: "http://13.214.37.101/users",
       headers: {
         Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(body),
+      data: data,
     };
 
-    fetch(`http://13.214.37.101/users`, requestOptions)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log(result);
-        // const { message } = result;
-        // router.push(`/profile`);
-        // alert(message);
-        setShowModal(false);
+    await axios(config)
+      .then(function (response) {
+        //   console.log(JSON.stringify(response.data));
+        console.log(response.data);
+
+        getData();
       })
-      .catch((error) => {
-        console.log(error);
-        alert(error.toString());
-      })
-      .finally();
+      .catch(function (error) {
+        console.log("error");
+      });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    editData();
+  };
+
+  //   const handleSubmit = async (e) => {
+  //     e.preventDefault();
+  //     editData();
+  //   };
 
   const handleLogout = () => {
     setToken("0");

@@ -40,11 +40,11 @@ function App() {
         <BrowserRouter>
           {token !== "0" ? (
             <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/home" element={<Home />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Home />} />
               <Route path="/checkout" element={<Checkout />} />
               <Route path="/cart" element={<Cart />} />
-              <Route path="/details" element={<Details />} />
+              <Route path="/details/:judul" element={<Details />} />
               <Route path="/history-order" element={<History />} />
               <Route path="/register" element={<Register />} />
               <Route path="/profile" element={<Profile />} />

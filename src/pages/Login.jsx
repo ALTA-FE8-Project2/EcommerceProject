@@ -22,7 +22,7 @@ const Login = () => {
         const token = response.data.data.token;
         localStorage.setItem("token", token);
         setToken(token);
-        navigate("/home");
+        navigate("/");
       })
       .catch(() => {
         alert("login failed");
