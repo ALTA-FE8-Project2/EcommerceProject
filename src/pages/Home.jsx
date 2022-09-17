@@ -14,7 +14,6 @@ const Home = () => {
     getListProducts();
   }, []);
 
-  // untuk get data E-Book dari endpoint mas fakhry
   const getListProducts = async () => {
     try {
       const response = await axios.get(API);
@@ -25,7 +24,6 @@ const Home = () => {
     }
   };
 
-  // untuk navigate ke halaman details
   const handleDetail = (item) => {
     navigate(`/details/${item.name}`, {
       state: {
@@ -41,20 +39,20 @@ const Home = () => {
     <div className="dark:bg-slate-800">
       <Navbar />
       <section className="max-w-screen-xl mx-auto my-24 ">
-        <div className="grid grid-flow-col gap-8 py-1 my-24 ">
-          <div className="flex flex-col col-span-6 py-20 my-3 mb-10">
-            <h1 className="text-5xl font-bold font-roboto text-limeEboox">
-              e-Boox
+        <div className="container flex flex-col flex-wrap px-0 py-1 mx-auto sm:flex-row sm:justify-between sm:px-3 ">
+          <div className="flex flex-col order-2 my-3 mt-0 mb-10 ml-6 md:mt-16 md:mb-0 sm:m-0 sm:order-1">
+            <h1 className="my-0 text-4xl font-bold sm:text-5xl sm:my-3 font-roboto text-limeEboox">
+              e-boox
             </h1>
-            <h1 className="mt-2 text-5xl font-bold font-roboto dark:text-main">
+            <h1 className="m-0 mt-2 text-3xl font-bold sm:text-5xl font-roboto dark:text-main sm:my-3">
               The Best <span className="text-limeEboox">Online</span>
             </h1>
-            <h1 className="mt-2 text-5xl font-bold font-roboto dark:text-main">
+            <h1 className="mt-2 text-3xl font-bold sm:text-5xl font-roboto dark:text-main">
               Book
               <span className="text-limeEboox"> Store</span>
             </h1>
             <div>
-              <button className="flex justify-between px-6 py-3 mt-16 mb-1 mr-1 text-sm font-bold text-white transition-all duration-150 ease-linear rounded-md shadow outline-none bg-cyanEboox active:bg-limeEboox-300 hover:lg focus:outline-none ">
+              <button className="flex justify-between px-6 py-3 mt-8 mb-1 mr-1 text-sm font-bold text-white transition-all duration-150 ease-linear rounded-md shadow outline-none bg-cyanEboox active:bg-limeEboox-300 hover:lg focus:outline-none ">
                 Get Our It{" "}
                 <span>
                   {" "}
@@ -67,8 +65,8 @@ const Home = () => {
               </button>
             </div>
           </div>
-          <div className="relative col-span-7">
-            <img src={sekawan} alt="sekawan" className="absolute mx-48 h-96" />
+          <div className="order-1 mx-auto sm:m-0 sm:order-2">
+            <img src={sekawan} alt="sekawan" className="h-56 sm:h-72 md:h-96" />
           </div>
         </div>
       </section>
