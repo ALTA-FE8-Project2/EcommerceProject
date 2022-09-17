@@ -12,7 +12,7 @@ export const Checkout = () => {
     <div className="bg-glass dark:bg-slate-800">
       <Navbar />
       <div className="w-full min-h-screen font-poppins">
-        <div className="container mx-auto lg:px-9 xl:px-0 md:px-9">
+        <div className="container mx-auto mb-10 lg:px-9 xl:px-0 md:px-9">
           <h1 className="mt-16 mb-5 text-xl lg:text-5xl sm:mb-0 text-slate-600 dark:text-white font-poppins">
             Checkout Items
           </h1>
