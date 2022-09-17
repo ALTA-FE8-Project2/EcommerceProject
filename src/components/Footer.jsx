@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <footer className="w-full h-full px-2 bg-limeEboox font-poppins">
-      <div className="flex flex-wrap items-center justify-center pt-10 mb-9 ">
+      <div className="flex flex-wrap items-center justify-center pt-10 lg:justify-between mb-9 max-w-[1200px] mx-auto ">
         {/* medsos */}
         <div className="flex justify-between mx-0 sm:mx-3 ">
           <a href="#!" className="mx-3 text-main">

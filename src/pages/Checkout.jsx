@@ -13,7 +13,7 @@ export const Checkout = () => {
       <Navbar />
       <div className="w-full min-h-screen font-poppins">
         <div className="container mx-auto lg:px-9 xl:px-0 md:px-9">
-          <h1 className="mt-16 mb-5 text-3xl text-center sm:mb-0 text-slate-600 dark:text-white font-poppins">
+          <h1 className="mt-16 mb-5 text-xl lg:text-5xl sm:mb-0 text-slate-600 dark:text-white font-poppins">
             Checkout Items
           </h1>
           <hr className="hidden mt-2 mb-16 sm:block border-slate-600 dark:border-white" />
