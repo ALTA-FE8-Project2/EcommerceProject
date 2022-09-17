@@ -53,16 +53,6 @@ const Profile = () => {
       .catch((error) => console.log(error));
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    editData();
-  };
-
-  //   const handleSubmit = async (e) => {
-  //     e.preventDefault();
-  //     editData();
-  //   };
-
   const handleLogout = () => {
     setToken("0");
     localStorage.removeItem("token");
