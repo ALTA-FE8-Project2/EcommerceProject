@@ -1,6 +1,6 @@
 import React from "react";
 
-const Card = ({ image, judul, price, handleDetail }) => {
+const Card = ({ image, judul, price, handleDetail, handleAddToCard }) => {
   return (
     <div className="flex m-6 border-black rounded-md shadow-md bg-slate-800 dark:bg-main flex-col-3 sm:w-auto ">
       <div className="cursor-pointer">
@@ -18,8 +18,10 @@ const Card = ({ image, judul, price, handleDetail }) => {
         <h2 className="m-1 text-lg text-main dark:text-slate-800 font-poppins">
           Rp {price}
         </h2>
-        <button className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700">
-          {" "}
+        <button
+          className="text-center text-white transition-all duration-500 rounded-md bg-cyanEboox hover:bg-lime-700"
+          onClick={handleAddToCard}
+        >
           Add To Cart
         </button>
       </div>

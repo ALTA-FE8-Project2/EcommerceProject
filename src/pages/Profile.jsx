@@ -30,7 +30,6 @@ const Profile = () => {
     try {
       const response = await axios(requestOptions);
       const { name, email } = response.data.data;
-      //   console.log(name, email);
       setName(name);
       setEmail(email);
     } catch (error) {
@@ -38,7 +37,7 @@ const Profile = () => {
     }
   };
 
-  // -------------------------edit data
+  // -------------------------edit Profile
   const editData = (e) => {
     e.preventDefault();
     const data = { name: name, email: email };
@@ -53,11 +52,36 @@ const Profile = () => {
       .catch((error) => console.log(error));
   };
 
+  //----------------------Logout
   const handleLogout = () => {
     setToken("0");
     localStorage.removeItem("token");
     navigate("/");
     alert("you have been log out.....");
+  };
+
+  // -----------------------Delete Account
+  const handleDeleteAccount = () => {
+    var axios = require("axios");
+
+    var config = {
+      method: "delete",
+      url: "http://18.142.161.140/users",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    };
+
+    axios(config)
+      .then(function (response) {
+        setToken("0");
+        localStorage.removeItem("token");
+        navigate("/");
+        alert("your accout has been deleted");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
@@ -112,6 +136,12 @@ const Profile = () => {
               onClick={() => handleLogout()}
             >
               Logout
+            </button>
+            <button
+              className="w-72 mx-auto py-2 mt-4 bg-[#FF0000] text-white text-xl md:text-2xl font-bold  sm:w-96 rounded-full xl:w-[472px]"
+              onClick={() => handleDeleteAccount()}
+            >
+              Delete Account
             </button>
           </div>
         </div>

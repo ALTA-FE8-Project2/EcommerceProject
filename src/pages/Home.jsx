@@ -5,25 +5,28 @@ import Footer from "../components/Footer";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
+
 const Home = () => {
   const navigate = useNavigate();
   const [listProducts, setListProducts] = useState([]);
   const API = "http://18.142.161.140/products";
+  const token = localStorage.getItem("token");
 
   useEffect(() => {
     getListProducts();
   }, []);
 
+  // get All product
   const getListProducts = async () => {
     try {
       const response = await axios.get(API);
-      console.log(response.data.data);
       setListProducts(response.data.data);
     } catch (error) {
       console.log(error);
     }
   };
 
+  //   handle Detail Product
   const handleDetail = (item) => {
     navigate(`/details/${item.name}`, {
       state: {
@@ -33,6 +36,32 @@ const Home = () => {
         price: item.price,
       },
     });
+  };
+
+  // handle Add to Card
+  const handleAddToCard = (productId) => {
+    var axios = require("axios");
+    var data = JSON.stringify({
+      product_id: productId,
+    });
+
+    var config = {
+      method: "post",
+      url: "http://18.142.161.140/carts",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      data: data,
+    };
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   return (
@@ -87,6 +116,7 @@ const Home = () => {
                   price={product.price}
                   sinopsis={product.detail}
                   handleDetail={() => handleDetail(product)}
+                  handleAddToCard={() => handleAddToCard(product.id)}
                 />
               </div>
             );
