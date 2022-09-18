@@ -49,7 +49,7 @@ const Login = () => {
         {/* Welcome */}
         <div className="w-full md:mr-2 lg:mr-0">
           <div className="md:mb-20 lg:mb-20">
-            <h1 className="ml-8 text-5xl font-extrabold font-Roboto sm:text-7xl lg:-mt-2 text-limeEboox">
+            <h1 className="ml-8 text-5xl font-extrabold text-green-500 font-Roboto sm:text-7xl lg:-mt-2">
               Welcome!
             </h1>
             <h5 className="text-2xl italic font-Roboto ml-9 text-cyanEboox sm:text-3xl ">
